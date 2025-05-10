@@ -59,7 +59,11 @@ app.post("/api/download", (req, res) => {
     res.setHeader("Content-type", "application/pdf");
     stream.pipe(res);
   });
-});
+});const cors = require("cors");
+app.use(cors({
+  origin: "https://ai-resume-builder-front-end.onrender.com"
+}));
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
